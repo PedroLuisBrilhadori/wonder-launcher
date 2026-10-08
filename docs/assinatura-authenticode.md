@@ -47,3 +47,31 @@ EV resolveria na hora, mas é o caro.
       atualizar o SHA-256 das notes)
 - [ ] Revalidar no VT (subir o zip assinado) e registrar o delta
 - [ ] Integrar no fluxo: docs/release.md §Release player-facing
+
+## Azure Trusted Signing (renomeado Azure Artifact Signing) — individual
+
+**US$ 9,99/mês** (Basic: 5.000 assinaturas/mês; Premium US$ 99,99; excedente
+US$ 0,005/assinatura). Individual aberto desde 11/2024 (preview público).
+
+Como funciona: você **não tem certificado** — valida sua identidade uma vez
+(documento + comprovante fiscal + ~3 anos de experiência profissional
+verificável; GitHub/LinkedIn ajudam) e o serviço assina por API com cadeia
+**gerenciada pela Microsoft**, mostrando seu nome validado como publisher.
+Integrações: cliente oficial + `signtool`, e **GitHub Action** (sign no
+release pipeline). Timestamp incluído. Revalidação periódica da identidade é
+exigida (aviso de renovação desde 10/2025).
+
+Riscos/fricção conhecidos:
+- lista de países suportados no formulário individual é LIMITADA (relatos de
+  devs da UE fora da lista); Brasil aparece como suportado em relatos, mas
+  confirmar no form. Criar conta + submeter validação **não custa nada** — dá
+  pra checar elegibilidade antes de pagar.
+- abuse de 2025 (malware assinado) apertou a vetting — aprovação pode demorar.
+- assinar em lote e cancelar a assinatura esbarra na revalidação — tratar como
+  custo recorrente enquanto em uso.
+
+**Ordem recomendada pra este projeto**: (1) testar elegibilidade no Azure
+(grátis até a validação; US$ 9,99/mês se passar — mais barato que tudo);
+(2) se Brasil/validação travar: **Certum Open Source** (~€70–90/ano — a MIT
+no repo já satisfaz o requisito, sem loteria de aprovação); (3) SignPath
+Foundation segue pendente em paralelo (grátis quando o projeto pega tração).
