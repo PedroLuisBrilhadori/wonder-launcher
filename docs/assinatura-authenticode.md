@@ -70,8 +70,14 @@ Riscos/fricção conhecidos:
 - assinar em lote e cancelar a assinatura esbarra na revalidação — tratar como
   custo recorrente enquanto em uso.
 
-**Ordem recomendada pra este projeto**: (1) testar elegibilidade no Azure
-(grátis até a validação; US$ 9,99/mês se passar — mais barato que tudo);
-(2) se Brasil/validação travar: **Certum Open Source** (~€70–90/ano — a MIT
-no repo já satisfaz o requisito, sem loteria de aprovação); (3) SignPath
-Foundation segue pendente em paralelo (grátis quando o projeto pega tração).
+**A conta que decide** (Azure é mês a mês, sem fidelidade — mas a validação de
+identidade antecede o uso e a revalidação periódica pune o ciclo
+assina-1-mês-cancela): contínuo = US$ 120/ano vs Certum ~€70–90; empate em
+~8 meses de uso/ano.
+
+**Ordem recomendada pra este projeto** (projeto ATIVO, release todo mês):
+(1) **Certum Open Source** (~€70–90/ano — a MIT no repo já satisfaz o
+requisito; compra determinística, assina quando quiser sem dança mensal);
+(2) **SignPath Foundation aplicado em paralelo** — quando aprovar, vira grátis
+e o Certum morre no vencimento; (3) **Azure só se o uso virar esporádico**
+(2–3 surtos de release/ano: ~US$ 20–30 ganha de todo mundo).
