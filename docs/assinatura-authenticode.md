@@ -81,3 +81,33 @@ requisito; compra determinística, assina quando quiser sem dança mensal);
 (2) **SignPath Foundation aplicado em paralelo** — quando aprovar, vira grátis
 e o Certum morre no vencimento; (3) **Azure só se o uso virar esporádico**
 (2–3 surtos de release/ano: ~US$ 20–30 ganha de todo mundo).
+
+## Ponte de 2 meses no Azure + escopo "amplo" (fazaboa)
+
+**A ponte funciona por causa do timestamp**: assinatura com carimbo de tempo é
+válida PARA SEMPRE, mesmo após cancelar a assinatura/certificado. Dois meses de
+Basic (~US$ 20) assinando cada release da janela = builds assinadas
+permanentemente; só builds NOVAS após o cancelamento ficam sem assinatura.
+Começar a validação de identidade (grátis) já, em paralelo ao pedido do
+SignPath, maximiza a janela útil.
+
+**Certificado "amplo" — um pra todas as apps da fazaboa:** certificado de
+código valida uma IDENTIDADE, não um app — um certificado só assina binários
+ilimitados de quem o detém. Dois regimes:
+
+| Regime | Como | Escopo |
+|---|---|---|
+| **Pessoa física** (Azure individual / Certum OS) | valida o dev (docs + ~3 anos experiência) | assina TUDO que ELE buildar — launcher, voicecast-Windows, ferramentas; publisher aparece o nome do dev |
+| **Pessoa jurídica** (org OV) | exige empresa registrada com **3+ anos** (critério Azure; CAs tradicionais verificam empresa) | publisher "fazaboa", cobre qualquer app da empresa — o "amplo" de verdade |
+
+Se a fazaboa tiver CNPJ com 3+ anos, o org OV é a resposta ampla (Azure org
+US$ 9,99/mês ou CA tradicional US$ 200–400/ano). Se a empresa é mais nova:
+certificado pessoal agora, org quando a empresa completar idade.
+
+**Limites do "um certificado pra tudo"**: Authenticode cobre **binários
+Windows** (launcher WkEmu, voicecast-Windows, tools). Fora dele: extensão de
+browser é assinada pela loja (CWS/AMO), app macOS exige Apple Developer
+(US$ 99/ano) — certificados separados por ecossistema.
+
+**SignPath é por PROJETO, não por org**: cada projeto open source aplica o
+seu (wonder-launcher hoje; outro repo OSS = outro pedido).
