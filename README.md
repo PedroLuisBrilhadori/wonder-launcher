@@ -40,3 +40,8 @@ próprio código, e o jogo em si cada jogador usa a própria cópia.
 
 Problemas? Abra uma [issue](../../issues) ou procure a equipe no Discord da
 comunidade.
+
+## Código aberto
+
+O código do launcher é aberto sob a [licença MIT](LICENSE) — qualquer um pode
+auditar, compilar e conferir o que roda na sua máquina.
