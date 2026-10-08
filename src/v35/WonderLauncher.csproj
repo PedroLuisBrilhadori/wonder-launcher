@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>WonderLauncher</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net40</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="WonderLauncher.bg.png" />
+    <None Remove="WonderLauncher.wkhdmod.dll" />
+    <None Remove="WonderLauncher.dinput8.dll" />
+    <None Remove="WonderLauncher.manifesto.txt" />
+    <EmbeddedResource Include="WonderLauncher.bg.png" LogicalName="WonderLauncher.bg.png" />
+    <EmbeddedResource Include="WonderLauncher.wkhdmod.dll" LogicalName="WonderLauncher.wkhdmod.dll" />
+    <EmbeddedResource Include="WonderLauncher.dinput8.dll" LogicalName="WonderLauncher.dinput8.dll" />
+    <EmbeddedResource Include="WonderLauncher.manifesto.txt" LogicalName="WonderLauncher.manifesto.txt" />
+  </ItemGroup>
+  <ItemGroup />
+</Project>
