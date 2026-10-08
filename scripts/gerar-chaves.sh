@@ -59,4 +59,4 @@ echo "teste-de-assinatura" > "$PASTA/.autoteste"
 openssl dgst -sha256 -sign "$PRIV" -out "$PASTA/.autoteste.sig" "$PASTA/.autoteste"
 openssl dgst -sha256 -verify "$PUB" -signature "$PASTA/.autoteste.sig" "$PASTA/.autoteste" >/dev/null
 rm -f "$PASTA/.autoteste" "$PASTA/.autoteste.sig"
-log "OK — privada em $PRIV (600). PUBLIQUE: $PUB e $RAW junto do release; EMBUTA o .der no launcher."
+log "OK — privada em $PRIV (600). PUBLIQUE: $PUB e $DER junto do release; EMBUTA o .der no launcher."
