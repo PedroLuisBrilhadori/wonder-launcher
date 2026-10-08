@@ -62,3 +62,40 @@ auto-update deles falha em silêncio, por design do LEIA-ME "sem internet ele pu
 A nova home é este repo; jogadores atualizam baixando o pacote novo uma última vez
 (quando existir release aqui, o launcher novo já nasce apontando para cá e com a
 chave embutida).
+
+## Conformidade de distribuição (2026-10-08)
+
+**O projeto distribui SÓ código próprio.** O jogo é propriedade dos detentores
+coreanos; o papel da equipe é o emulador + as modificações que fazem o client rodar
+no nosso servidor. Em prática:
+
+| | Distribuído por nós? |
+|---|---|
+| Launcher, `dinput8.dll`, `wkhdmod.dll`, inis, `dxvk.conf` | ✅ sim (código/config nosso) |
+| Cliente original (`value/`, `sound/`, exes, `GameGuard.des`…) | ❌ nunca — o jogador obtém por conta própria |
+| `Load.exe` **patcheado** | ❌ é derivado do exe do jogo — as correções são aplicadas **localmente** na máquina do jogador pelo `ClientSetup` (que confere o SHA-256 do original) |
+| Dados extraídos do jogo (`items/*.csv` etc.) | ❌ fora do pacote de distribuição (ficam no repo, para as ferramentas) |
+
+Guardiões mecânicos disso:
+
+- **`docs/distribuicao/jogo-original.sha256`** — os 6.237 hashes do client original
+  (WonderKingUS.7z, inventário de 2026-10-08) + derivados conhecidos (Load.exe
+  patcheado). O `publicar-release.sh` **recusa assinar** qualquer arquivo da lista
+  (exit 3) — nem por esquecimento.
+- As releases antigas com conteúdo do jogo são removidas; a v3.5.1-teste foi apagada
+  por conter o `Load.exe` derivado.
+- O link do pacote completo do jogo (mediafire wk_classic) **deve ser desativado**
+  pelos colegas — é a distribuição que estamos deixando para trás.
+
+## Custódia das chaves (plano — OpenBao)
+
+Espaço reservado `wk/` no OpenBao da casa (após resolver o acesso à db01):
+
+| Caminho planejado | Conteúdo |
+|---|---|
+| `wk/canal-atualizacao` | `chave_privada_rsa` (o canal do launcher) + `chave_publica_xml/der` |
+| `wk/release-sha256sums` | chave privada P-256 da camada SHA256SUMS |
+
+Enquanto a custódia não existe, as chaves vivem FORA do git (arquivo 600 com o
+dono do release). A privada RSA atual nasceu em 2026-10-08 (a antiga do canal
+estava perdida com o repo 404 — por isso a nova home + re-key).

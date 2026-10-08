@@ -32,26 +32,43 @@ fi
 ARQUIVOS=$(find "$PASTA" -maxdepth 1 -type f ! -name 'SHA256SUMS*' -printf '%f\n' | sort)
 [[ -n $ARQUIVOS ]] || req_pre "pasta sem arquivos para publicar"
 
+# conformidade: o projeto distribui SÓ código próprio — nenhum arquivo do jogo
+# original (nem derivados, ex.: Load.exe patcheado). Blocklist versionada no repo.
+BLOCKLIST=${BLOCKLIST:-$(cd "$(dirname "$0")/.." && pwd)/docs/distribuicao/jogo-original.sha256}
+[[ -r $BLOCKLIST ]] || req_pre "blocklist de conformidade ausente: $BLOCKLIST"
+PROIBIDOS=$(cd "$PASTA" && sha256sum $ARQUIVOS | awk '{print tolower($1)}' | grep -Fx -f "$BLOCKLIST" || true)
+if [[ -n $PROIBIDOS ]]; then
+  log "VIOLAÇÃO DE CONFORMIDADE — estes arquivos são do jogo original (ou derivados) e NÃO podem ser distribuídos:"
+  ( cd "$PASTA" && sha256sum $ARQUIVOS ) | while IFS= read -r l; do
+    h=${l%% *}; echo "$PROIBIDOS" | grep -qx "$h" && echo "  - ${l#*  } ($h)"
+  done
+  log "Distribua só código próprio. O jogador obtém o client original por conta própria;"
+  log "o patch do Load.exe é aplicado LOCALMENTE pelo ClientSetup a partir do original dele."
+  exit 3
+fi
+
 echo "PLANO:"
-echo " [1/4] arquivos do release:"
+echo " [1/5] arquivos do release:"
 echo "$ARQUIVOS" | sed 's/^/       - /'
-echo " [2/4] gerar SHA256SUMS (formato sha256sum, ordem alfabética)"
-echo " [3/4] assinar com Ed25519 -> SHA256SUMS.sig"
-echo " [4/4] auto-verificação (openssl confere a assinatura que acabou de criar)"
+echo " [2/5] conformidade: nenhum arquivo do jogo original (blocklist $(wc -l < "$BLOCKLIST") hashes) ✓"
+echo " [3/5] gerar SHA256SUMS (formato sha256sum, ordem alfabética)"
+echo " [4/5] assinar com ECDSA P-256 -> SHA256SUMS.sig"
+echo " [5/5] auto-verificação (openssl confere a assinatura que acabou de criar)"
+echo " [5/5] resumo de publicação"
 [[ $CHECK -eq 1 ]] && { echo "Check: nada foi escrito."; exit 0; }
 
-log "[2/4] SHA256SUMS..."
+log "[2/5] SHA256SUMS..."
 ( cd "$PASTA" && echo "$ARQUIVOS" | xargs sha256sum | sed 's|\(  \)\./\?|\1|' > SHA256SUMS )
 # sha256sum imprime "<hash>  <caminho>"; garantimos o separador de duas casas sem "./"
 cat "$PASTA/SHA256SUMS"
 
-log "[3/4] assinando..."
+log "[3/5] assinando..."
 openssl dgst -sha256 -sign "$CHAVE" -out "$PASTA/SHA256SUMS.sig" "$PASTA/SHA256SUMS"
 
-log "[4/4] auto-verificação..."
+log "[4/5] auto-verificação..."
 openssl dgst -sha256 -verify <(openssl pkey -in "$CHAVE" -pubout 2>/dev/null) \
   -signature "$PASTA/SHA256SUMS.sig" "$PASTA/SHA256SUMS" >/dev/null \
   || { log "ERRO: assinatura não bateu com a própria chave — abortado."; exit 4; }
 
-log "OK — anexe ao release do GitHub: os arquivos + SHA256SUMS + SHA256SUMS.sig"
+log "[5/5] OK — anexe ao release do GitHub: os arquivos + SHA256SUMS + SHA256SUMS.sig"
 log "Publique também a chave pública (chave-publica.pem/.der) — quem embute no launcher usa o .der"
