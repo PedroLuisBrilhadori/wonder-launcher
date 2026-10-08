@@ -99,3 +99,28 @@ Espaço reservado `wk/` no OpenBao da casa (após resolver o acesso à db01):
 Enquanto a custódia não existe, as chaves vivem FORA do git (arquivo 600 com o
 dono do release). A privada RSA atual nasceu em 2026-10-08 (a antiga do canal
 estava perdida com o repo 404 — por isso a nova home + re-key).
+
+## Release player-facing (formato novo — 2026-10-08)
+
+O repo é a **vitrine dos players**: a `main` tem só o README de jogador, e cada
+release tem **um único asset: o zip** (`WonderLauncher-vX.Y.Z.zip`) com 3 arquivos:
+
+| Arquivo | Por quê |
+|---|---|
+| `WonderLauncher.exe` | o launcher (as DLLs wkhdmod/dinput8 são **recursos embutidos** dele — `DeployResourceDll`) |
+| `info.ini` | **nosso** (está na lista dos 50): aponta o server. O launcher só LÊ esse arquivo, não escreve |
+| `LEIA-ME.txt` | instruções simples de jogador |
+
+Passo a passo de publicação:
+
+1. Montar a pasta dos 3 arquivos e rodar `publicar-release.sh` nela (o check de
+   conformidade roda igual — nenhum arquivo do jogo).
+2. Zipar só os 3 (SEM SHA256SUMS, que o script deixa na pasta).
+3. Release com o zip como **único asset**; no corpo: instalação em 4 passos +
+   SHA-256 do zip para conferência.
+4. O `atualizacao.txt` (canal de auto-update) **só entra como asset quando o
+   launcher re-keyado existir** — o binário 3.5 distribuído hoje valida só com a
+   chave antiga (perdida); publicar manifesto agora não ativa nada e polui a página.
+
+Técnica (fontes, scripts, blocklist, custódia de chaves) vive **neste branch** —
+a main não precisa saber.
