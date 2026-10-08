@@ -1,0 +1,66 @@
+====================================================
+   WONDER CLASSIC - LAUNCHER v3.5 (HD + Widescreen + Sync)
+====================================================
+
+COMO USAR
+  1. Copie os DOIS arquivos deste zip para a pasta do jogo
+     (a mesma pasta onde esta o seu Load.exe atual):
+        - WonderLauncher.exe
+        - Load.exe        (substitua o antigo quando perguntar)
+  2. Abra o WonderLauncher.exe.
+  3. Na primeira vez ele instala tudo sozinho e limpa patches antigos.
+     Quando aparecer "PRONTO PARA JOGAR", clique em PLAY.
+
+O QUE ELE INSTALA (sozinho, na pasta do jogo)
+  - wkhdmod.dll .... imagem em HD + modos de tela + widescreen 16:9
+  - dinput8.dll .... sincronizacao de movimento e PvP (sync v3) e as
+                     correcoes do 16:9: mapas pequenos centralizados, fundo
+                     completado nas laterais, mouse certo no login,
+                     HUD na borda direita (minimapa, canal, quests),
+                     barra de baixo inteira e loja (Item Mall) certa
+  - os .ini de configuracao (tela_patch.ini e sync_patch.ini)
+  Nao precisa copiar DLL na mao: o launcher cuida de tudo.
+
+ATUALIZA SOZINHO (desde a v3.2)
+  A partir desta versao o launcher procura atualizacao toda vez que
+  abre e se atualiza sozinho. Nao precisa baixar zip de novo.
+  Sem internet ele so pula essa etapa e o jogo abre normal.
+
+CORRECOES DO 16:9 (v3.3)
+  - Tela de login: botoes OK, Save ID, Sign Up, Find ID e Cancel no
+    lugar certo e clicaveis.
+  - Mapa-mundi (W > See All): clicar na cidade abre o mapa dela.
+
+CRIAR CONTA (desde a v3.2)
+  Botao "Criar Conta" no painel da direita. Usuario de 4 a 16 letras
+  ou numeros; senha de 6 a 32 caracteres, sem espacos nem acentos.
+  Funciona quando o servidor estiver ligado com o cadastro ativo.
+
+JA USAVA UM PATCH ANTIGO? (version.dll ou hd.dll)
+  Pode instalar por cima: o launcher troca pelo Load.exe novo e
+  remove o patch antigo automaticamente.
+
+STATUS DO SERVIDOR E CRIAR CONTA (novo na 3.5)
+  - O painel da direita mostra se o servidor esta ONLINE, quantos
+    jogadores estao jogando e o seu ping.
+  - "Criar Conta" cria a conta direto pelo launcher. A senha vai
+    criptografada; so o servidor consegue ler.
+
+CONFIGURAR (engrenagem no canto de cima)
+  - Modo de janela: tela cheia, janela ou original.
+  - Campo de visao: 4:3 ou 16:9 nativo (widescreen; experimental).
+  - Qualidade da imagem: Bilinear / Nitido / HD.
+  - Escala do HD: Automatica, 2x, 3x, 4x, 6x, 8x (6x/8x so em placa forte).
+  Se o jogo ficar pesado, use Qualidade "Nitido" ou Escala "2x".
+  O sync e configurado no arquivo sync_patch.ini (ja vem pronto).
+
+SE O WINDOWS BLOQUEAR AO ABRIR
+  - Antes de extrair: botao direito no zip -> Propriedades ->
+    marque "Desbloquear" -> OK. Depois extraia.
+  - Tela azul do Windows: "Mais informacoes" -> "Executar assim
+    mesmo". E seguro, so nao tem assinatura paga.
+
+PROBLEMAS
+  - "FECHE O JOGO": o jogo estava aberto; feche e reabra o launcher.
+  - Bugs: mande os arquivos tela_patch.log e sync_patch.log da
+    pasta do jogo.
