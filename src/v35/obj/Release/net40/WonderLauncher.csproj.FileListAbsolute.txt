@@ -1,0 +1,2 @@
+/src/src/v35/obj/Release/net40/WonderLauncher.GeneratedMSBuildEditorConfig.editorconfig
+/src/src/v35/obj/Release/net40/WonderLauncher.csproj.CoreCompileInputs.cache

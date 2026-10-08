@@ -15,7 +15,7 @@ internal sealed class Atualizador
 {
 	public const string UrlPadrao = "https://github.com/guisq1515/wonder-launcher/releases/latest/download/atualizacao.txt";
 
-	private const string ChavePublica = "<RSAKeyValue><Modulus>tN91p3KQeHpWrZqhSLGF3Es/SeZmc5rsRMQ8A/ik7JaFf2olzHRLHQgTSlONJ5IbwWMlS+cY2mD7Vxy8bz6CDpwfP/eoqrGNcVlPoy+hQq0blYGwlgQdoCxXy9Z4hGuWLtcVQ1a+vPQVeMr6fgUbSKO4JJm+N49mRF7JIGreRraKz7tNZWeXJs1eZAQBu182kalAZBLhjn38jdv+S93JwDfialnbLRFj0CIEIi5/X3PVDDy14eZJo8aLi6W54UISdvdTEC0meCwer2kpYQewKQEe6yzk+EpE4eFtJeK61GBTZrnxp7V+tnog7kpmKw+NR3A4Br/mhja6HWaxawU6tsWrrHlWjPyyQVMeersmck5MXViGhD3YyIakRMnA2+BN3vY07zpDowlrPodVsrkJachPE5mv19LG+j1GuiWa9eJ7YmptqTmli6G16E2mrAw00lV8xHVzLWh7tWIVv+7wTm9GvXcmLhC5lUkKKDTSe5FB8pD6Qwz3EQBnwKtnutL9</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
+	private const string ChavePublica = "<RSAKeyValue><Modulus>sUs5gR3eIVYyFO2qW30op3HkYjKzhbaGog3gVOb9Zz/jR8L5ma1vVnyPPpvelSAFQ5vYai2FLzblKiO3b3BzBXFILyEaTiCG8lGaYY6+znd3h7ri7lTaJu6dy5CCZKIYKWTHuN+3s9xHgbrBjNbCMp1tlkV/hrBAL3mgTRHyVzs3R/bQx9Ji1kBBria6931C97HzMAf1lfe4p3COq4YfobULvUuasVvetjOKkZDk5ElPO7mfKom66oY+vL0DFRPXjyhdcZIF9VjQescVInjTg5892Javsc+fYQrRCdnDrXZxRflgnOnnLsbyEBt2qq59WOUhf08I4Ing0wuGBdyQKQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
 
 	public const string ArgReiniciado = "--atualizado";
 
@@ -215,7 +215,7 @@ internal sealed class Atualizador
 		}
 		using RSACryptoServiceProvider rSACryptoServiceProvider = new RSACryptoServiceProvider(new CspParameters(24));
 		rSACryptoServiceProvider.PersistKeyInCsp = false;
-		rSACryptoServiceProvider.FromXmlString("<RSAKeyValue><Modulus>tN91p3KQeHpWrZqhSLGF3Es/SeZmc5rsRMQ8A/ik7JaFf2olzHRLHQgTSlONJ5IbwWMlS+cY2mD7Vxy8bz6CDpwfP/eoqrGNcVlPoy+hQq0blYGwlgQdoCxXy9Z4hGuWLtcVQ1a+vPQVeMr6fgUbSKO4JJm+N49mRF7JIGreRraKz7tNZWeXJs1eZAQBu182kalAZBLhjn38jdv+S93JwDfialnbLRFj0CIEIi5/X3PVDDy14eZJo8aLi6W54UISdvdTEC0meCwer2kpYQewKQEe6yzk+EpE4eFtJeK61GBTZrnxp7V+tnog7kpmKw+NR3A4Br/mhja6HWaxawU6tsWrrHlWjPyyQVMeersmck5MXViGhD3YyIakRMnA2+BN3vY07zpDowlrPodVsrkJachPE5mv19LG+j1GuiWa9eJ7YmptqTmli6G16E2mrAw00lV8xHVzLWh7tWIVv+7wTm9GvXcmLhC5lUkKKDTSe5FB8pD6Qwz3EQBnwKtnutL9</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>");
+		rSACryptoServiceProvider.FromXmlString("<RSAKeyValue><Modulus>sUs5gR3eIVYyFO2qW30op3HkYjKzhbaGog3gVOb9Zz/jR8L5ma1vVnyPPpvelSAFQ5vYai2FLzblKiO3b3BzBXFILyEaTiCG8lGaYY6+znd3h7ri7lTaJu6dy5CCZKIYKWTHuN+3s9xHgbrBjNbCMp1tlkV/hrBAL3mgTRHyVzs3R/bQx9Ji1kBBria6931C97HzMAf1lfe4p3COq4YfobULvUuasVvetjOKkZDk5ElPO7mfKom66oY+vL0DFRPXjyhdcZIF9VjQescVInjTg5892Javsc+fYQrRCdnDrXZxRflgnOnnLsbyEBt2qq59WOUhf08I4Ing0wuGBdyQKQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>");
 		return rSACryptoServiceProvider.VerifyData(Encoding.UTF8.GetBytes(stringBuilder.ToString()), "SHA256", signature);
 	}
 

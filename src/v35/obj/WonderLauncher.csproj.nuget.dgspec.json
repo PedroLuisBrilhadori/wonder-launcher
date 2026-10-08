@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "/src/src/v35/WonderLauncher.csproj": {}
+  },
+  "projects": {
+    "/src/src/v35/WonderLauncher.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/src/src/v35/WonderLauncher.csproj",
+        "projectName": "WonderLauncher",
+        "projectPath": "/src/src/v35/WonderLauncher.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/src/src/v35/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net40"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net40": {
+            "framework": "net40",
+            "targetAlias": "net40",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU1701"
+          ],
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.400"
+      },
+      "frameworks": {
+        "net40": {
+          "framework": "net40",
+          "targetAlias": "net40",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

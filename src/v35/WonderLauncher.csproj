@@ -8,18 +8,22 @@
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>14.0</LangVersion>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>app.ico</ApplicationIcon>
+    <NoWarn>NU1701;MSB3277</NoWarn>
     <RootNamespace />
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="WonderLauncher.bg.png" />
     <None Remove="WonderLauncher.wkhdmod.dll" />
     <None Remove="WonderLauncher.dinput8.dll" />
     <None Remove="WonderLauncher.manifesto.txt" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
     <EmbeddedResource Include="WonderLauncher.bg.png" LogicalName="WonderLauncher.bg.png" />
     <EmbeddedResource Include="WonderLauncher.wkhdmod.dll" LogicalName="WonderLauncher.wkhdmod.dll" />
     <EmbeddedResource Include="WonderLauncher.dinput8.dll" LogicalName="WonderLauncher.dinput8.dll" />
